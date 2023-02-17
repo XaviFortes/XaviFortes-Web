@@ -5,65 +5,43 @@
       If you would like to get in touch with me, please send me an email at
       <a href="mailto:xavifortes@xavifortes.com">xavifortes@xavifortes.com</a>.
     </p>
-    <form @submit.prevent="sendEmail">
-      <label for="name">Name:</label>
-      <input type="text" id="name" v-model="form.name" required />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" v-model="form.email" required />
-
-      <label for="message">Message:</label>
-      <textarea id="message" v-model="form.message" required></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
+    <p>
+      Or you can fill out the form below and I will get back to you as soon as
+      possible.
+    </p>
+    &nbsp;
+    <ContactForm ref="contactForm" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import nodemailer from "nodemailer";
+<script>
+import ContactForm from "@/components/ContactForm.vue";
 
-export default defineComponent({
-  data() {
-    return {
-      form: {
-        name: "",
-        email: "",
-        message: "",
-      }
-    };
+export default {
+  name: "ContactView",
+  components: {
+    ContactForm,
   },
   methods: {
-    async sendEmail() {
-      const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-          user: "your-email@gmail.com",
-          pass: "your-email-password",
-        },
-      });
-
-      const mailOptions = {
-        from: this.form.email,
-        to: "recipient-email@example.com",
-        subject: `New message from ${this.form.name}`,
-        text: this.form.message,
-      };
-
-      try {
-        await transporter.sendMail(mailOptions);
-        alert("Message sent successfully!");
-        this.form.name = "";
-        this.form.email = "";
-        this.form.message = "";
-      } catch (err) {
-        console.error(err);
-        alert("Failed to send message.");
-      }
+    submitForm() {
+      this.$refs.contactForm.sendEmail();
     },
   },
-});
+};
 </script>
+
+<style scoped>
+h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  margin-right: auto;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+</style>

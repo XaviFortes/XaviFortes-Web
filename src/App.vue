@@ -15,9 +15,11 @@ import { RouterLink, RouterView } from "vue-router";
       </nav>
     </div>
   </header>
-  <Transition name="fade" mode="out-in" appear>
-    <RouterView />
-  </Transition>
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in" appear>
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <style scoped>
