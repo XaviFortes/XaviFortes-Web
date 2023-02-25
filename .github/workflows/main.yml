@@ -58,6 +58,12 @@ jobs:
           ${{ runner.os }}-node-
           ${{ runner.os }}-node-${{ hashFiles('Dockerfile') }}
 
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
     - name: Build Docker image
       uses: docker/build-push-action@v2
       with:
@@ -65,31 +71,13 @@ jobs:
         push: true
         tags: karasus15/xavifortes-web:latest
   
-  deploy:
-    needs: [test, build]
-    # Only if the tests and build jobs were successful and the commit was pushed to the main branch
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      # Deploy the app using ArgoCD
-      - name: Deploy to ArgoCD
-        uses: argoproj-labs/argocd-deploy@v2
-        with:
-          server: https://${{ secrets.ARGOCD_SERVER}}
-          token: ${{ secrets.ARGOCD_TOKEN }}
-          application: xavifortes-web
-          namespace: xavifortes
-          source:
-            repoURL: https://github.com/XaviFortes/XaviFortes-Web
-            path: k8s/xavifortes-web.yaml
-            targetRevision: HEAD
-          destination:
-            server: https://kubernetes.default.svc
-            namespace: xavifortes
-            name: xavifortes
-          sync: true
-          prune: true
-          dryRun: false
-          force: false
-          selfHeal: true
-          argocdVersion: v2.1.1
+  
+  #deploy:
+  #  needs: [test, build]
+  #  # Only if the tests and build jobs were successful and the commit was pushed to the main branch
+  #  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    # Deploy the app using ArgoCD
+  #    - name: Deploy to ArgoCD
+  #      uses: 
