@@ -1,0 +1,95 @@
+name: CI-CD
+
+# Trigger the workflow on push and pull request events for the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# Define the jobs that will run in the workflow
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # Use a cache to speed up dependency installation
+    # Only restore cache when the lock file has not changed
+    # Save cache only when dependencies have been updated
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Install dependencies
+      run: npm install
+
+    # Run your tests
+    - name: Run tests
+      run: npm run type-check && npm run lint
+
+    # Upload test coverage to Codecov (optional)
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+  build:
+    runs-on: ubuntu-latest
+
+    # Use a cache to speed up dependency installation and build
+    # Only restore cache when the lock file and Dockerfile have not changed
+    # Save cache only when dependencies or Dockerfile have been updated
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('Dockerfile') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+          ${{ runner.os }}-node-${{ hashFiles('Dockerfile') }}
+
+    - name: Build Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: karasus15/xavifortes-web:latest
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test, build]
+
+    # Only if the tests and build jobs were successful and the commit was pushed to the main branch
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      # Deploy the app using ArgoCD
+      - name: Deploy to ArgoCD
+        uses: argoproj-labs/argocd-deploy@v2
+        with:
+          server: https://${{ secrets.ARGOCD_SERVER}}
+          token: ${{ secrets.ARGOCD_TOKEN }}
+          application: xavifortes-web
+          namespace: xavifortes
+          source:
+            repoURL:
+            path: k8s/xavifortes-web.yaml
+            targetRevision: HEAD
+          destination:
+            server: https://${{ secrets.K8S_SERVER }}
+            namespace: xavifortes
+            name: xavifortes
+          sync: true
+          prune: true
+          dryRun: false
+          force: false
+          selfHeal: true
+          argocdVersion: v2.1.1

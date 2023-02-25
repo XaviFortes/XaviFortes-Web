@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ContactForm from "@/components/ContactForm.vue";
 
 export default {
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$refs.contactForm.sendEmail();
+      (this.$refs.contactForm as typeof ContactForm).sendEmail();
     },
   },
 };
