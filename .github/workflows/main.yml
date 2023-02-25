@@ -84,7 +84,7 @@ jobs:
             path: k8s/xavifortes-web.yaml
             targetRevision: HEAD
           destination:
-            server: https://${{ secrets.K8S_SERVER }}
+            server: https://kubernetes.default.svc
             namespace: xavifortes
             name: xavifortes
           sync: true
