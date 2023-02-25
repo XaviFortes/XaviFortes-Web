@@ -70,7 +70,7 @@ jobs:
     needs: [test, build]
 
     # Only if the tests and build jobs were successful and the commit was pushed to the main branch
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main':
       # Deploy the app using ArgoCD
       - name: Deploy to ArgoCD
         uses: argoproj-labs/argocd-deploy@v2
