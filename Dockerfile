@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
+# Build the app for production
+RUN npm run build
+
 # Copy the rest of the application files to the container
 COPY . .
 
