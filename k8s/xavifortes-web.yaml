@@ -13,7 +13,6 @@ spec:
   selector:
     matchLabels:
       app: xavifortes-web
-      namespace: xavifortes
   template:
     metadata:
       labels:
