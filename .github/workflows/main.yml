@@ -11,6 +11,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    environment: Runner
 
     # Use a cache to speed up dependency installation
     # Only restore cache when the lock file has not changed
@@ -41,6 +42,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    environment: Runner
 
     # Use a cache to speed up dependency installation and build
     # Only restore cache when the lock file and Dockerfile have not changed
