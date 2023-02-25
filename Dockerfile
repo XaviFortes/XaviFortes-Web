@@ -21,4 +21,4 @@ ENV PORT=80
 EXPOSE 80
 
 # Start the app
-CMD ["npm", "run", "preview", "--host", "--port", "80"]
+CMD ["npm", "run", "preview", "--", "--host", "--port", "80"]
