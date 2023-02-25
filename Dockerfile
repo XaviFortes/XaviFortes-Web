@@ -15,10 +15,10 @@ COPY . .
 
 # Set environment variables
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=80
 
 # Expose port 3000 for the app to listen on
-EXPOSE 3000
+EXPOSE 80
 
 # Start the app
 CMD ["npm", "start"]
