@@ -80,7 +80,7 @@ jobs:
           application: xavifortes-web
           namespace: xavifortes
           source:
-            repoURL:
+            repoURL: https://github.com/XaviFortes/XaviFortes-Web
             path: k8s/xavifortes-web.yaml
             targetRevision: HEAD
           destination:
