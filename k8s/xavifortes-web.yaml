@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: xavifortes-web
-        image: karasu15/xavifortes-web:latest
+        image: karasus15/xavifortes-web:latest
         ports:
         - containerPort: 80
 ---
