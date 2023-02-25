@@ -17,8 +17,8 @@ COPY . .
 ENV NODE_ENV=production
 ENV PORT=80
 
-# Expose port 3000 for the app to listen on
+# Expose port 80 for the app to listen on
 EXPOSE 80
 
 # Start the app
-CMD ["npm", "start"]
+CMD ["npm", "run", "preview"]
