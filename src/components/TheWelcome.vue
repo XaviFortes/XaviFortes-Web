@@ -32,8 +32,6 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
-
 export default {
   name: "TheWelcome",
   data() {
@@ -49,19 +47,6 @@ export default {
       uptimeStatus: "",
       isLoading: true,
     };
-  },
-  async mounted() {
-    const axInstance = axios.create();
-    axInstance
-      .get("https://uptime.karasu.es/api/status-page/heartbeat/k8s", {
-        mode: "no-cors",
-      })
-      .then((response) => {
-        this.uptimeData = response.data.heartbeatList["6"];
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   },
 };
 </script>
