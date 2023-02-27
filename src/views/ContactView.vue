@@ -1,13 +1,17 @@
 <template>
   <div>
     <h1>Contact</h1>
+    <p>If you would like to get in touch with me, you can find me on</p>
     <p>
-      If you would like to get in touch with me, please send me an email at
-      <a href="mailto:xavifortes@xavifortes.com">xavifortes@xavifortes.com</a>.
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/xavier-fortes/">Xavi Fortes</a>
     </p>
     <p>
-      Or you can fill out the form below and I will get back to you as soon as
-      possible.
+      or you can send me an email at
+      <a href="mailto:xavifortes@xavifortes.com">xavifortes@xavifortes.com</a>,
+    </p>
+    <p>
+      also via this form below and I will get back to you as soon as possible.
     </p>
     &nbsp;
     <ContactForm ref="contactForm" />

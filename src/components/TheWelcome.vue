@@ -1,22 +1,95 @@
 <template>
-  <div data-text="Welcome">
+  <!-- <div data-text="Welcome"> -->
+  <!-- <h1>Welcome</h1> -->
+  <!-- </div> -->
+  <div>
     <h1>Welcome</h1>
+    <p>
+      Welcome to my personal website! I'm a student and Junior DevOps Engineer,
+      passionate about all things related to tech and development.
+    </p>
+    <p>
+      This website was created using Vue.js and Vite, and is deployed on a
+      Kubernetes cluster. It's maintained through continuous integration and
+      deployment using GitHub Actions and ArgoCD, ensuring that any updates or
+      changes are seamlessly deployed and available to visitors at all times.
+    </p>
   </div>
+  <footer>
+    <p>
+      Check out my LinkedIn profile
+      <a href="https://www.linkedin.com/in/xavier-fortes/"> here</a>.
+    </p>
+    <p>
+      Check out my GitHub profile
+      <a href="https://github.com/xavifortes"> here</a>.
+    </p>
+    <p>
+      Check out my deployments in Kubernetes
+      <a href="https://uptime.karasu.es/status/k8s"> here</a>.
+    </p>
+  </footer>
 </template>
+
+<script lang="ts">
+import axios from "axios";
+
+export default {
+  name: "TheWelcome",
+  data() {
+    return {
+      uptimeData: [
+        {
+          status: "",
+          time: "",
+          msg: "",
+          ping: "",
+        },
+      ],
+      uptimeStatus: "",
+      isLoading: true,
+    };
+  },
+  async mounted() {
+    const axInstance = axios.create();
+    axInstance
+      .get("https://uptime.karasu.es/api/status-page/heartbeat/k8s", {
+        mode: "no-cors",
+      })
+      .then((response) => {
+        this.uptimeData = response.data.heartbeatList["6"];
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+};
+</script>
 
 <style scoped>
 a {
-  display: block;
-  padding-top: 2rem;
-  color: #2d2d2d;
 }
 
 h1 {
   font-family: sans-serif;
   font-weight: bold;
   color: white;
-  font-size: 5rem;
-  animation: glitch 4s steps(100) infinite;
+  font-size: 2rem;
+  /* animation: glitch 4s steps(100) infinite; */
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1rem;
+}
+
+footer {
+  margin-top: 2rem;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: darkgray;
+  font-size: 1rem;
 }
 
 /* GLITCH EFFECT */

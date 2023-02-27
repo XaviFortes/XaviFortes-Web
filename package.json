@@ -13,6 +13,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "cors-anywhere": "^0.4.4",
     "dotenv": "^16.0.3",
     "js-md5": "^0.7.3",
     "pinia": "^2.0.28",
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@playwright/test": "^1.28.1",
     "@rushstack/eslint-patch": "^1.1.4",
+    "@types/cors": "^2.8.13",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.11.12",
     "@types/nodemailer": "^6.4.7",

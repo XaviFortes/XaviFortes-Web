@@ -1,2 +1,3 @@
 /// <reference types="vite/client" />
 declare module "js-md5";
+declare module "cors-anywhere";
