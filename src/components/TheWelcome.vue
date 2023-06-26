@@ -28,6 +28,10 @@
       Check out my deployments in Kubernetes
       <a href="https://uptime.karasu.es/status/k8s"> here</a>.
     </p>
+    <p>
+      Check out my CV
+      <a href="https://ipfs.io/ipfs/QmRNMcTz3Fi2Zq3CFG9tu7s1YAuBJ4im9tpeKDBt9jhnXY"> here</a>.
+    </p>
   </footer>
 </template>
 
