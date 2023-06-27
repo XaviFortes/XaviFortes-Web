@@ -13,6 +13,20 @@
           <li>Version Control with Git</li>
         </ul>
       </div>
+      <div class="skills_container_item">
+        <h2>Software Developer</h2>
+        <ul>
+          <li>Java</li>
+          <li>C# / .NET</li>
+          <li>TypeScript/JavaScript React</li>
+          <li>Python</li>
+          <li>Bash</li>
+          <li>Kotlin</li>
+          <li>HTML and CSS</li>
+          <li>SQL / NoSQL</li>
+          <li>Rest APIs</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
