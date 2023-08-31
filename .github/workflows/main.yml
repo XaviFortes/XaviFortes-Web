@@ -71,8 +71,8 @@ jobs:
       with:
         context: .
         push: true
+        # tags: karasus15/xavifortes-web:${{ github.sha }}
         tags: karasus15/xavifortes-web:latest
-  
   
   #deploy:
   #  needs: [test, build]
