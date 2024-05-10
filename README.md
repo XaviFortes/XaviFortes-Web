@@ -1,6 +1,6 @@
 # Xavi Fortes Portfolio
 
-This repository contains the source code for Xavi Fortes' portfolio website, built using Vue.js.
+This repository contains the source code for Xavi Fortes portfolio website, built using Vue.js.
 
 ## Dockerfile
 
@@ -150,6 +150,10 @@ spec:
 ```
 
 This Kubernetes deployment defines a single replica of the application and exposes it via a service on port 80.
+
+## Self-hosted
+
+The website is hosted on a self-hosted server using Docker and Kubernetes (K3S). The website is available at [xavifortes.com](https://xavifortes.com).
 
 ## Usage
 
