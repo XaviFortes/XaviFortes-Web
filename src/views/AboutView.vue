@@ -2,15 +2,50 @@
   <div class="about-container">
     <h1>About</h1>
     <div class="about">
-      <h3>
-        As a Junior DevOps Engineer, I bring technical skills in infrastructure
-        automation using tools like Terraform, deployment pipelines, and
-        containerization using Docker and Kubernetes. Passionate about
-        continuous learning and innovation, I'm committed to optimizing
-        workflows, ensuring cloud-based system security and availability, and
-        delivering reliable and scalable applications through collaboration with
-        development teams.
-      </h3>
+      <p>
+        Hello! I'm Xavi Fortes, a Junior DevOps Engineer with a passion for
+        building and maintaining robust infrastructures and developing efficient
+        software solutions. With a background in multiplatform application
+        development and microcomputer systems and networks, I've honed my skills
+        in various areas of cloud computing, automation, and programming
+        languages.
+      </p>
+      <p>
+        In my current role at Unisys, I handle infrastructure maintenance in
+        Azure, utilizing technologies like SQL DB, Functions, and App Service.
+        Additionally, I've contributed to internal projects using .Net, Entity
+        Framework, and Blazor, empowering our team to streamline processes and
+        enhance productivity. Prior to this, at Allfunds Bank SAU, I gained
+        hands-on experience in AWS infrastructure maintenance with Terraform,
+        Docker, Kubernetes, and troubleshooting through Jira.
+      </p>
+      <p>
+        My expertise spans across AWS, Azure, GCP, alongside proficiency in
+        Terraform, Docker, Kubernetes, and scripting in bash/shell. I'm fluent
+        in languages like C#, Java, Python, and SQL, and have dabbled in
+        frontend technologies like JavaScript, TypeScript, and React. My
+        continuous learning journey includes certifications in cybersecurity,
+        networking, and courses from reputable institutions like Cisco and
+        Universidad Francisco de Vitoria.
+      </p>
+      <p>
+        Outside of work, I'm an avid tech enthusiast, constantly exploring new
+        technologies and setting up personal projects. I've built a HomeLab
+        environment with virtual machines, including a Kubernetes K3S cluster,
+        showcased on my website. From hosting game servers to managing home
+        automation systems, I love experimenting with cutting-edge tools and
+        platforms like AWS, GCP, and Azure to bring my ideas to life.
+      </p>
+      <p>
+        Feel free to connect with me on
+        <a href="https://www.linkedin.com/in/xavi-fortes/" target="_blank"
+          >LinkedIn</a
+        >
+        or continue to explore this page
+        <a href="https://xavifortes.com" target="_blank">xavifortes.com</a> to
+        learn more about my professional journey and projects. Let's collaborate
+        and innovate together in the ever-evolving landscape of technology!
+      </p>
     </div>
   </div>
 </template>
@@ -21,20 +56,29 @@
 }
 
 .about {
-  /* background-color: #202020; */
+  background-color: #f8f9fa;
   padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
-h3 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0;
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 </style>

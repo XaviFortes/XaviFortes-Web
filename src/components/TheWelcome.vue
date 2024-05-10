@@ -5,7 +5,7 @@
   <div>
     <h1>Welcome</h1>
     <p>
-      Welcome to my personal website! I'm a student and Junior DevOps Engineer,
+      Welcome to my personal website! I'm a Junior DevOps Engineer and Software Engineer,
       passionate about all things related to tech and development.
     </p>
     <p>
@@ -18,7 +18,7 @@
   <footer>
     <p>
       Check out my LinkedIn profile
-      <a href="https://www.linkedin.com/in/xavier-fortes/"> here</a>.
+      <a href="https://www.linkedin.com/in/xavi-fortes/"> here</a>.
     </p>
     <p>
       Check out my GitHub profile
@@ -27,10 +27,6 @@
     <p>
       Check out my deployments in Kubernetes
       <a href="https://uptime.karasu.es/status/k8s"> here</a>.
-    </p>
-    <p>
-      Check out my CV
-      <a href="https://ipfs.io/ipfs/QmRNMcTz3Fi2Zq3CFG9tu7s1YAuBJ4im9tpeKDBt9jhnXY"> here</a>.
     </p>
   </footer>
 </template>

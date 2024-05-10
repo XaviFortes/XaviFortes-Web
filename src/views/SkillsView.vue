@@ -6,25 +6,20 @@
         <h2>DevOps</h2>
         <ul>
           <li>Infrastructure as Code with Terraform</li>
-          <li>Continuous Integration and Continuous Deployment with Gitlab</li>
-          <li>Containerization with Docker and Kubernetes</li>
-          <li>Cloud Computing with AWS</li>
+          <li>Continuous Integration and Continuous Deployment with GitLab, GitHub, and Azure DevOps</li>
+          <li>Containerization with Docker and Kubernetes (EKS, AKS)</li>
+          <li>Cloud Computing with AWS (EC2, Lambda, S3, CloudFront, ELB), Azure, and GCP</li>
           <li>Monitoring and Logging with Prometheus and Grafana</li>
           <li>Version Control with Git</li>
         </ul>
       </div>
       <div class="skills_container_item">
-        <h2>Software Developer</h2>
+        <h2>Software Development</h2>
         <ul>
-          <li>Java</li>
-          <li>C# / .NET</li>
-          <li>TypeScript/JavaScript React</li>
-          <li>Python</li>
-          <li>Bash</li>
-          <li>Kotlin</li>
-          <li>HTML and CSS</li>
-          <li>SQL / NoSQL</li>
-          <li>Rest APIs</li>
+          <li>Languages: Java, C#, .NET, TypeScript, JavaScript (React), Python, Bash, Kotlin</li>
+          <li>Web Technologies: HTML, CSS</li>
+          <li>Databases: SQL (T-SQL), NoSQL</li>
+          <li>API Development: RESTful APIs</li>
         </ul>
       </div>
     </div>
@@ -35,7 +30,6 @@
 .skills {
   margin-top: 2rem;
   padding: 1rem;
-  /* background-color: #f5f5f5; */
 }
 
 .skills h1 {
@@ -50,12 +44,13 @@
 }
 
 .skills_container_item {
-  background-color: #202020;
+  background-color: #f8f9fa;
   padding: 1rem;
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   width: 100%;
+  margin: 0 10px;
 }
 
 .skills_container_item h2 {
