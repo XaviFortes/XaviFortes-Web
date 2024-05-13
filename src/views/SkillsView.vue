@@ -44,7 +44,7 @@
 }
 
 .skills_container_item {
-  background-color: #f8f9fa;
+  background-color: #232323;
   padding: 1rem;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
